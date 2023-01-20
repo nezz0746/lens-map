@@ -2,7 +2,7 @@
 pragma solidity ^0.8.13;
 
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
-import "./MapLogic.sol";
+import "./logic/MapLogic.sol";
 import "./libs/Structs.sol";
 import "./libs/Errors.sol";
 
