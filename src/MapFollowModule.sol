@@ -6,6 +6,7 @@ import {ModuleBase} from "@lens/core/modules/ModuleBase.sol";
 import {FollowValidatorFollowModuleBase} from "@lens/core/modules/follow/FollowValidatorFollowModuleBase.sol";
 import {IFollowModule} from "@lens/interfaces/IFollowModule.sol";
 import {Errors} from "./libs/Errors.sol";
+import {Map} from "./Map.sol";
 import "./libs/Structs.sol";
 
 /**
@@ -15,7 +16,7 @@ import "./libs/Structs.sol";
  * their location on the map.
  */
 contract MapFollowModule is IFollowModule, FollowValidatorFollowModuleBase {
-    mapping(uint256 => MapMapFollowConfig) public mapFollowByProfile;
+    mapping(uint256 => MapFollowConfig) public mapFollowByProfile;
 
     constructor(address hub) ModuleBase(hub) {}
 
@@ -30,7 +31,7 @@ contract MapFollowModule is IFollowModule, FollowValidatorFollowModuleBase {
             (address, address)
         );
 
-        mapFollowByProfile[profileId] = MapMapFollowConfig(
+        mapFollowByProfile[profileId] = MapFollowConfig(
             mapAddress,
             followingAddress
         );
