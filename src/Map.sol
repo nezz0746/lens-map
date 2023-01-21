@@ -9,7 +9,7 @@ import "./libs/Errors.sol";
 /**
  * @title Map contract
  * @author nezzar.eth
- * @notice This contract is used to manage holder's position & moves.
+ * @notice This contract is used to manage holder's positions represented by encoded ERC1155 tokens.
  */
 contract Map is MapLogic, ERC1155 {
     event Move(
@@ -43,16 +43,6 @@ contract Map is MapLogic, ERC1155 {
         if (tx.origin != msg.sender || account != msg.sender)
             revert Errors.accountNotSender();
         _;
-    }
-
-    ///////////////////// PUBLIC FUNCTIONS ////////////////////
-
-    function move(
-        address account,
-        uint256 lat,
-        uint256 lng
-    ) public payable {
-        _move(account, lat, lng, _toCoordinates(lat, lng));
     }
 
     ///////////////////// INTERNAL FUNCTIONS //////////////////
