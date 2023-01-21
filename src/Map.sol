@@ -51,14 +51,12 @@ contract Map is MapLogic, ERC1155 {
     /// @param account Address of the account to move.
     /// @param lat Latitude of the new location (with any precision, destined to be indexed in the event @note refactor?)
     /// @param lng Longitude of the new location (with any precision, destined to be indexed in the event @note refactor?)
-    /// @param coordinates Coordinates of the new location.
     function _move(
         address account,
         uint256 lat,
-        uint256 lng,
-        Coordinate memory coordinates
+        uint256 lng
     ) internal onlyValidAccount(account) {
-        uint256 locationId = _detectLocation(coordinates);
+        uint256 locationId = _detectLocation(_toCoordinates(lat, lng));
         uint256 previousLocationId = userCoordinates[account];
 
         if (locationId == previousLocationId)
