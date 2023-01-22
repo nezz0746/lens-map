@@ -70,10 +70,9 @@ contract MapCollectModule is FollowValidationModuleBase, ICollectModule {
                 _profileId
             ][_pubId].locationId;
 
-            require(
-                userLocation == publicationLocation,
-                "NOT_IN_SAME_LOCATION"
-            );
+            if (userLocation != publicationLocation) {
+                revert Errors.notInLocation();
+            }
         }
     }
 }
