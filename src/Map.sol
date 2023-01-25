@@ -49,8 +49,8 @@ contract Map is MapLogic, ERC1155 {
 
     /// @notice Replace account's location token with new one.
     /// @param account Address of the account to move.
-    /// @param lat Latitude of the new location (with any precision, destined to be indexed in the event @note refactor?)
-    /// @param lng Longitude of the new location (with any precision, destined to be indexed in the event @note refactor?)
+    /// @param lat Latitude of the new location
+    /// @param lng Longitude of the new location
     function _move(
         address account,
         uint256 lat,
