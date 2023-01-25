@@ -2,14 +2,14 @@
 
 A map app based on Lens Protocol. Follow & Collect modules are gated by location, represented by a ERC1155 token.
 
-## ERC1155 Map
+## Map (ERC1155)
 - The entire (-90 to 90) latitudes and (0 to 180E & 180W) longitudes are split into a configurable & predictible amount of locations
 - A base `_move` function can be used to burn old location token & mint the new location token
 
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px;">
-    <img src="https://i.imgur.com/axSt3eK.png" />
-    <img src="https://i.imgur.com/AzdXqKS.png" />
-</div>
+Packed Location             |  Account Motion
+:-------------------------:|:-------------------------:
+![](https://i.imgur.com/axSt3eK.png)  |  ![](https://i.imgur.com/AzdXqKS.png)
+
 
 <br/>
 
