@@ -6,12 +6,12 @@ import "../src/Map.sol";
 import "../src/mocks/MockMap.sol";
 
 contract BaseMapTest is DSTestFull {
-    Map baseMap;
+    MockMap mockMap;
 
     constructor() {}
 
     function setUp() public virtual {
-        baseMap = new Map("Test Map", "ipfs://[CID]", 1000);
+        mockMap = new MockMap("Test Map", "ipfs://[CID]", 1000);
     }
 }
 
@@ -40,13 +40,6 @@ contract Unit_MapTest_Constructor is BaseMapTest {
 }
 
 contract Unit_MapTest_LocationEncoding is BaseMapTest {
-    MockMap mockMap;
-    uint256 MAX_INT = 2**256 - 1;
-
-    function setUp() public override {
-        mockMap = new MockMap("Test Map", "ipfs://[CID]", 1000);
-    }
-
     function testMaxLat(uint256 lat, uint256 lng) public {
         (, , uint16 multiplicator) = mockMap.getConfiguration();
 
@@ -78,13 +71,6 @@ contract Unit_MapTest_LocationEncoding is BaseMapTest {
 }
 
 contract Unit_MapTest_Move is BaseMapTest {
-    MockMap mockMap;
-    uint256 MAX_INT = 2**256 - 1;
-
-    function setUp() public override {
-        mockMap = new MockMap("Test Map", "ipfs://[CID]", 1000);
-    }
-
     function testMove(uint256 lat, uint256 lng) public {
         (, , uint16 multiplicator) = mockMap.getConfiguration();
 
@@ -120,13 +106,6 @@ contract Unit_MapTest_Move is BaseMapTest {
 }
 
 contract Unit_MapTest_Transferability is BaseMapTest {
-    MockMap mockMap;
-    uint256 MAX_INT = 2**256 - 1;
-
-    function setUp() public override {
-        mockMap = new MockMap("Test Map", "ipfs://[CID]", 1000);
-    }
-
     function testCannotTransferLocation(uint256 lat, uint256 lng) public {
         (, , uint16 multiplicator) = mockMap.getConfiguration();
 

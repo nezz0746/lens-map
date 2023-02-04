@@ -1,5 +1,5 @@
 # MapLogic
-[Git Source](https://github.com/nezz0746/lens-simple-map/blob/95972a29578cd8a5ca3ebd68f73f966d33940d9b/src/logic/MapLogic.sol)
+[Git Source](https://github.com/nezz0746/lens-simple-map/blob/a30c376db312f36a38577517f8db496f70da23ed/src/logic/MapLogic.sol)
 
 **Author:**
 nezzar.eth
@@ -117,15 +117,6 @@ function _encodeLocationId(Coordinate[4] memory squareCoordinates) internal view
 
 ```solidity
 function _decodeLocation(uint256 locationId) internal view returns (Coordinate[4] memory);
-```
-
-### _isValidLocation
-
-*Check if area coordinates are valid*
-
-
-```solidity
-function _isValidLocation(Coordinate[4] memory squareCoordinates) internal view returns (bool);
 ```
 
 ### _detectLocation

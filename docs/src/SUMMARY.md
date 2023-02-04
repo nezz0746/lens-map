@@ -10,6 +10,8 @@
     - [MapCollectConfig](src/libs/Structs.sol/struct.MapCollectConfig.md)
   - [❱ logic](src/logic/README.md)
     - [MapLogic](src/logic/MapLogic.sol/contract.MapLogic.md)
+  - [❱ mocks](src/mocks/README.md)
+    - [MockMap](src/mocks/MockMap.sol/contract.MockMap.md)
   - [Map](src/Map.sol/contract.Map.md)
   - [MapCollectModule](src/MapCollectModule.sol/contract.MapCollectModule.md)
   - [MapFollowModule](src/MapFollowModule.sol/contract.MapFollowModule.md)
