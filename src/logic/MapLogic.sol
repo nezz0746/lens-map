@@ -2,6 +2,7 @@
 pragma solidity ^0.8.10;
 
 import {Coordinate} from "../libs/Structs.sol";
+import {Errors} from "../libs/Errors.sol";
 
 /**
  * @title MapLogic
@@ -63,6 +64,9 @@ contract MapLogic {
         view
         returns (Coordinate memory)
     {
+        if (lat > _maxLat) revert Errors.invalidCoordinates();
+        if (lng > _maxLng) revert Errors.invalidCoordinates();
+
         return
             Coordinate(
                 uint16(lat / multiplicator),
@@ -78,8 +82,6 @@ contract MapLogic {
         view
         returns (uint256)
     {
-        require(_isValidLocation(squareCoordinates), "INVALID_LOCATION");
-
         uint256 id;
 
         for (uint256 i = 0; i < 4; i++) {
@@ -121,21 +123,6 @@ contract MapLogic {
     }
 
     /**
-     * @dev Check if area coordinates are valid
-     */
-    function _isValidLocation(Coordinate[4] memory squareCoordinates)
-        internal
-        view
-        returns (bool)
-    {
-        return ((squareCoordinates[1].lat - squareCoordinates[0].lat ==
-            _latStep) &&
-            (squareCoordinates[2].lat - squareCoordinates[3].lat == _latStep) &&
-            (squareCoordinates[2].lng - squareCoordinates[1].lng == _lngStep) &&
-            (squareCoordinates[3].lng - squareCoordinates[0].lng == _lngStep));
-    }
-
-    /**
      * @dev Predict locationID of area from point coordinates
      */
     function _detectLocation(Coordinate memory coordinates)
@@ -143,9 +130,6 @@ contract MapLogic {
         view
         returns (uint256)
     {
-        require(coordinates.lat < _maxLat, "INVALID_LAT");
-        require(coordinates.lng < _maxLng, "INVALID_LNG");
-
         Coordinate memory bottomLeft = Coordinate(
             coordinates.lat - (coordinates.lat % _latStep),
             coordinates.lng - (coordinates.lng % _lngStep)
