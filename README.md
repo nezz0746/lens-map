@@ -23,6 +23,15 @@ Packed Location             |  Account Motion
 - Initializing the module sets the map the profile is on
 - Processing the collect verifies the publication was created in the same location as caller profile
   
+### Deployments
+
+
+Contract             | Address
+:-------------------------:|:-------------------------:
+MapCollectModule | [0x1cF0e24aE49D1ce3D83c73D3d35164cC1b735b05](https://polygonscan.com/address/0x1cF0e24aE49D1ce3D83c73D3d35164cC1b735b05)
+MapFollowModule | [0x87fE365825592D035f678Eb6aB3ec35878da8348](https://polygonscan.com/address/0x87fE365825592D035f678Eb6aB3ec35878da8348)
+
+Launch you own map or build on an existing but modules aren't map specific
 
 <br/>
 
